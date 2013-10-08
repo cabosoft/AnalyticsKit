@@ -43,12 +43,26 @@
     [TestFlight passCheckpoint:[@"Screen - " stringByAppendingString:screenName]];
 }
 
--(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict {}
--(void)logEvent:(NSString *)event withProperty:(NSString *)key andValue:(NSString *)value {}
+-(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict
+{
+}
+
+-(void)logEvent:(NSString *)event withProperty:(NSString *)key andValue:(NSString *)value {
+	NSString * checkpoint = [NSString stringWithFormat:@"%@ - %@", key, event];
+	
+	if (value.length > 0)
+	{
+		checkpoint = [NSString stringWithFormat:@"%@ (%@)", checkpoint, value];
+	}
+	
+    [TestFlight passCheckpoint:checkpoint];
+}
+
 
 -(void)logEvent:(NSString *)eventName timed:(BOOL)timed{}
 
 -(void)logEvent:(NSString *)eventName withProperties:(NSDictionary *)dict timed:(BOOL)timed{}
+
 -(void)endTimedEvent:(NSString *)eventName withProperties:(NSDictionary *)dict{}
 -(void)logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception {}
 -(void)logError:(NSString *)name message:(NSString *)message error:(NSError *)error {}
