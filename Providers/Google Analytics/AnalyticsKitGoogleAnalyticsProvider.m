@@ -6,6 +6,9 @@
 //
 
 #import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+
 #import "AnalyticsKitGoogleAnalyticsProvider.h"
 
 static NSMutableDictionary *timedEvents;
@@ -70,8 +73,15 @@ static NSString* const kProperties = @"properties";
 //Logging events
 -(void)logScreen:(NSString *)screenName
 {
-    id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:screenName];
+//    id tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker sendView:screenName];
+
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	// Set the screen name on the tracker so that it is used in all hits sent from this screen.
+	[tracker set:kGAIScreenName value:screenName];
+	
+	// Send a screenview.
+	[tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 }
 
 -(void)logEvent:(NSString *)event
