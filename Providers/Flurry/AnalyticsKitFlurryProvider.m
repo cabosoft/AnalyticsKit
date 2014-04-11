@@ -59,7 +59,7 @@
 
 -(void)logEvent:(NSString *)event withProperty:(NSString *)key andValue:(NSString *)value {
     [self runInMainThread:^{
-        [Flurry logEvent:event withParameters:[NSDictionary dictionaryWithObject:value forKey:key]];
+        [Flurry logEvent:event withParameters:[NSDictionary dictionaryWithObject:(value ? value : @"") forKey:key]];
     }];
 }
 
