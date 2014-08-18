@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
 
   
-  s.platform     = :ios
+  s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/twobitlabs/AnalyticsKit.git", :tag => s.version.to_s }
 
   s.subspec 'Core' do |core|
@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Localytics' do |l|
     l.source_files = 'Providers/Localytics/AnalyticsKitLocalyticsProvider.{h,m}'
-    l.dependency 'Localytics'
+    l.dependency 'Localytics-iOS-Client'
     l.dependency 'AnalyticsKit/Core'
   end
 
