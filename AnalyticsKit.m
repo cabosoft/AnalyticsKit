@@ -10,115 +10,236 @@
 
 @implementation AnalyticsKit
 
+NSString* const AnalyticsKitEventTimeSeconds = @"AnalyticsKitEventTimeSeconds";
+
 static NSArray *_loggers = nil;
 
-+(void)initialize {
-    _loggers = [[NSArray alloc] init];
++(void) initialize
+{
+	_loggers = [[NSArray alloc] init];
 }
 
-+(void)initializeLoggers:(NSArray *)loggers {
++(void) initializeLoggers:(NSArray *)loggers
+{
     #if !__has_feature(objc_arc)
-    [loggers retain];
-    [_loggers release];
+	[loggers retain];
+	[_loggers release];
     #endif
-    _loggers = loggers;
+	_loggers = loggers;
 }
 
-+(NSArray *)loggers {
-    return _loggers;
++(NSArray *) loggers
+{
+	return _loggers;
 }
 
-+(void)applicationWillEnterForeground {
-    AKINFO(@"");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger applicationWillEnterForeground];
-    }    
++(void) applicationWillEnterForeground
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(applicationWillEnterForeground)])
+		{
+			[logger applicationWillEnterForeground];
+		}
+	}
 }
 
-+(void)applicationDidEnterBackground {
-    AKINFO(@"");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger applicationDidEnterBackground];
-    }        
++(void) applicationDidEnterBackground
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(applicationDidEnterBackground)])
+		{
+			[logger applicationDidEnterBackground];
+		}
+	}
 }
 
-+(void)applicationWillTerminate {
-    AKINFO(@"");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger applicationWillTerminate];
-    }    
++(void) applicationDidBecomeActive:(UIApplication *) application
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(applicationDidBecomeActive:)])
+		{
+			[logger applicationDidBecomeActive:application];
+		}
+	}
 }
 
-+(void)uncaughtException:(NSException *)exception {
-    AKINFO(@"");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger uncaughtException:exception];
-    }    
-    
++(void) applicationWillTerminate
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(applicationWillTerminate)])
+		{
+			[logger applicationWillTerminate];
+		}
+	}
 }
 
-+(void)logScreen:(NSString *)screenName {
-    AKINFO(@"%@", screenName);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logScreen:screenName];
-    }
-    
++(void) uncaughtException:(NSException *)exception
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(uncaughtException:)])
+		{
+			[logger uncaughtException:exception];
+		}
+	}
 }
 
-+(void)logEvent:(NSString *)event {
-    AKINFO(@"%@", event);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logEvent:event];
-    }
++(BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url
+{
+	AKINFO(@"");
+
+	BOOL result = false;
+
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(application:handleOpenURL:)])
+		{
+			result = result || [logger application:application handleOpenURL:url];
+		}
+	}
+
+	return result;
 }
 
-+(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict {
-    AKINFO(@"%@ withProperties: %@", event, dict);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logEvent:event withProperties:dict];
-    }    
++(BOOL) application:(UIApplication *) application openURL:(NSURL *) url
+        sourceApplication:(NSString *) sourceApplication annotation:(id) annotation
+{
+	AKINFO(@"");
+
+	BOOL result = false;
+
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(application:openURL:sourceApplication:annotation:)])
+		{
+			result = result || [logger application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+		}
+	}
+
+	return result;
 }
 
-+(void)logEvent:(NSString *)event withProperty:(NSString *)property andValue:(NSString *)value {
-    AKINFO(@"%@ withProperty: %@ andValue: %@", event, property, value);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logEvent:event withProperty:property andValue:value];
-    }
+
++(void) logScreen:(NSString *)screenName
+{
+	AKINFO(@"%@", screenName);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logScreen:)])
+		{
+			[logger logScreen:screenName];
+		}
+	}
+
 }
 
-+(void)logEvent:(NSString *)eventName timed:(BOOL)timed{
-    AKINFO(@"%@ timed: %@", eventName, timed ? @"YES" : @"NO");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logEvent:eventName timed:timed];
-    }
++(void) logEvent:(NSString *)event
+{
+	AKINFO(@"%@", event);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logEvent:)])
+		{
+			[logger logEvent:event];
+		}
+	}
 }
 
-+(void)logEvent:(NSString *)eventName withProperties:(NSDictionary *)dict timed:(BOOL)timed{
-    AKINFO(@"%@ withProperties: %@ timed: %@", eventName, dict, timed ? @"YES" : @"NO");
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logEvent:eventName withProperties:dict timed:timed];
-    }
++(void) logEvent:(NSString *)event withProperties:(NSDictionary *)dict
+{
+	AKINFO(@"%@ withProperties: %@", event, dict);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logEvent:withProperties:)])
+		{
+			[logger logEvent:event withProperties:dict];
+		}
+	}
 }
 
-+(void)endTimedEvent:(NSString *)eventName withProperties:(NSDictionary *)dict{
-    AKINFO(@"%@ withProperties: %@ ended", eventName, dict);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger endTimedEvent:eventName withProperties:dict];
-    }
++(void) logEvent:(NSString *)event withProperty:(NSString *)property andValue:(NSString *)value
+{
+	if (property == nil)
+		property = @"nil";
+	if (value == nil)
+		value = @"nil";
+	AKINFO(@"%@ withProperty: %@ andValue: %@", event, property, value);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logEvent:withProperty:andValue:)])
+		{
+			[logger logEvent:event withProperty:property andValue:value];
+		}
+	}
 }
 
-+(void)logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception {
-    AKERROR(@"%@: %@", name, message);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logError:name message:message exception:exception];
-    }    
++(void) logEvent:(NSString *)eventName timed:(BOOL)timed
+{
+	AKINFO(@"%@ timed: %@", eventName, timed ? @"YES" : @"NO");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logEvent:timed:)])
+		{
+			[logger logEvent:eventName timed:timed];
+		}
+	}
 }
 
-+(void)logError:(NSString *)name message:(NSString *)message error:(NSError *)error {
-    AKERROR(@"%@: %@", name, message);
-    for (id<AnalyticsKitProvider> logger in _loggers) {
-        [logger logError:name message:message error:error];
-    }
++(void) logEvent:(NSString *)eventName withProperties:(NSDictionary *)dict timed:(BOOL)timed
+{
+	AKINFO(@"%@ withProperties: %@ timed: %@", eventName, dict, timed ? @"YES" : @"NO");
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logEvent:withProperties:timed:)])
+		{
+			[logger logEvent:eventName withProperties:dict timed:timed];
+		}
+	}
+}
+
++(void) endTimedEvent:(NSString *)eventName withProperties:(NSDictionary *)dict
+{
+	AKINFO(@"%@ withProperties: %@ ended", eventName, dict);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(endTimedEvent:withProperties:)])
+		{
+			[logger endTimedEvent:eventName withProperties:dict];
+		}
+	}
+}
+
++(void) logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception
+{
+	AKERROR(@"%@: %@", name, message);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logError:message:exception:)])
+		{
+			[logger logError:name message:message exception:exception];
+		}
+	}
+}
+
++(void) logError:(NSString *)name message:(NSString *)message error:(NSError *)error
+{
+	AKERROR(@"%@: %@", name, message);
+	for (id<AnalyticsKitProvider> logger in _loggers)
+	{
+		if ([logger respondsToSelector:@selector(logError:message:error:)])
+		{
+			[logger logError:name message:message error:error];
+		}
+	}
 }
 
 
