@@ -26,16 +26,8 @@
 // Lifecycle
 -(void) applicationWillEnterForeground;
 -(void) applicationDidEnterBackground;
--(void) applicationDidBecomeActive:(UIApplication *) application;
 -(void) applicationWillTerminate;
 -(void) uncaughtException:(NSException *)exception;
-
-// Pre iOS 4.2 application URL support
--(BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url;
-// For iOS 4.2+ application URL support
--(BOOL) application:(UIApplication *) application openURL:(NSURL *) url
-        sourceApplication:(NSString *) sourceApplication annotation:(id) annotation;
-
 
 /**
    Note about timed events
@@ -58,6 +50,14 @@
 -(void) logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception;
 -(void) logError:(NSString *)name message:(NSString *)message error:(NSError *)error;
 
+@optional
+-(void) applicationDidBecomeActive:(UIApplication *) application;
+
+// Pre iOS 4.2 application URL support
+-(BOOL) application:(UIApplication *) application handleOpenURL:(NSURL *) url;
+// For iOS 4.2+ application URL support
+-(BOOL) application:(UIApplication *) application openURL:(NSURL *) url
+  sourceApplication:(NSString *) sourceApplication annotation:(id) annotation;
 
 @end
 
