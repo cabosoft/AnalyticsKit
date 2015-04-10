@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C0EF2F118DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0EF2F018DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.m */; };
 		9C0EF30918E0C33700D19A2C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0EF30118E0C33700D19A2C /* libOCMock.a */; };
 		9C0EF31218E0D19300D19A2C /* AnalyticsKitAdjustIOProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3799F118183A6B00488101 /* AnalyticsKitAdjustIOProvider.m */; };
 		9C0EF31318E0D19F00D19A2C /* AnalyticsKitApsalarProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3799F418183A6B00488101 /* AnalyticsKitApsalarProvider.m */; };
@@ -45,6 +44,7 @@
 		9C379A0D18183A6B00488101 /* AnalyticsKitUnitTestProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3799EA18183A6B00488101 /* AnalyticsKitUnitTestProvider.m */; };
 		9C379A0E18183A6B00488101 /* NSNumber+Buckets.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3799ED18183A6B00488101 /* NSNumber+Buckets.m */; };
 		9C379A1B1818507A00488101 /* AnalyticsKitCrashlyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C379A1A1818507A00488101 /* AnalyticsKitCrashlyticsProvider.m */; };
+		B83449241AD8800000F3777F /* AnalyticsKitTimedEventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B83449231AD8800000F3777F /* AnalyticsKitTimedEventHelper.m */; };
 		BC9972B4832495353F4866B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87681BC755A786872F96C2AE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +62,7 @@
 		4B7C1E2D3E7D07282A40BBE7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		87681BC755A786872F96C2AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3BD10E05E74EA1FC24CE5B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9C0EF2EF18DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsKitTimedEventHelper.h; sourceTree = "<group>"; };
-		9C0EF2F018DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsKitTimedEventHelper.m; sourceTree = "<group>"; };
+		9C0EF2EF18DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticsKitTimedEventHelper.h; path = ../../AnalyticsKitTimedEventHelper.h; sourceTree = "<group>"; };
 		9C0EF30118E0C33700D19A2C /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = OCMock/libOCMock.a; sourceTree = "<group>"; };
 		9C0EF30318E0C33700D19A2C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		9C0EF30418E0C33700D19A2C /* OCMArg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMArg.h; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		9C379A0618183A6B00488101 /* AnalyticsKitParseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsKitParseProvider.m; sourceTree = "<group>"; };
 		9C379A191818507A00488101 /* AnalyticsKitCrashlyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticsKitCrashlyticsProvider.h; path = Crashlytics/AnalyticsKitCrashlyticsProvider.h; sourceTree = "<group>"; };
 		9C379A1A1818507A00488101 /* AnalyticsKitCrashlyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticsKitCrashlyticsProvider.m; path = Crashlytics/AnalyticsKitCrashlyticsProvider.m; sourceTree = "<group>"; };
+		B83449231AD8800000F3777F /* AnalyticsKitTimedEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticsKitTimedEventHelper.m; path = ../../AnalyticsKitTimedEventHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,22 +259,22 @@
 			children = (
 				9C3799E318183A6B00488101 /* AnalyticsKit.h */,
 				9C3799E418183A6B00488101 /* AnalyticsKit.m */,
+				9C3799BC181838FD00488101 /* AnalyticsKitAppDelegate.h */,
+				9C3799BD181838FD00488101 /* AnalyticsKitAppDelegate.m */,
 				9C3799E518183A6B00488101 /* AnalyticsKitDebugProvider.h */,
 				9C3799E618183A6B00488101 /* AnalyticsKitDebugProvider.m */,
 				9C3799E718183A6B00488101 /* AnalyticsKitEvent.h */,
 				9C3799E818183A6B00488101 /* AnalyticsKitEvent.m */,
+				9C0EF2EF18DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.h */,
+				B83449231AD8800000F3777F /* AnalyticsKitTimedEventHelper.m */,
 				9C3799E918183A6B00488101 /* AnalyticsKitUnitTestProvider.h */,
 				9C3799EA18183A6B00488101 /* AnalyticsKitUnitTestProvider.m */,
-				9C3799EB18183A6B00488101 /* Categories */,
-				9C3799EE18183A6B00488101 /* Providers */,
-				9C3799BC181838FD00488101 /* AnalyticsKitAppDelegate.h */,
-				9C3799BD181838FD00488101 /* AnalyticsKitAppDelegate.m */,
 				9C3799C2181838FD00488101 /* AnalyticsKitViewController.h */,
 				9C3799C3181838FD00488101 /* AnalyticsKitViewController.m */,
+				9C3799EB18183A6B00488101 /* Categories */,
 				9C3799C5181838FD00488101 /* Images.xcassets */,
+				9C3799EE18183A6B00488101 /* Providers */,
 				9C3799B4181838FD00488101 /* Supporting Files */,
-				9C0EF2EF18DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.h */,
-				9C0EF2F018DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.m */,
 			);
 			path = AnalyticsKit;
 			sourceTree = "<group>";
@@ -559,10 +559,10 @@
 				9C0EF31318E0D19F00D19A2C /* AnalyticsKitApsalarProvider.m in Sources */,
 				9C0EF31818E0D1BF00D19A2C /* AnalyticsKitNewRelicProvider.m in Sources */,
 				9C379A0C18183A6B00488101 /* AnalyticsKitEvent.m in Sources */,
-				9C0EF2F118DCFE9B00D19A2C /* AnalyticsKitTimedEventHelper.m in Sources */,
 				9C379A0E18183A6B00488101 /* NSNumber+Buckets.m in Sources */,
 				9C3799BE181838FD00488101 /* AnalyticsKitAppDelegate.m in Sources */,
 				9C0EF31918E0D1C500D19A2C /* AnalyticsKitParseProvider.m in Sources */,
+				B83449241AD8800000F3777F /* AnalyticsKitTimedEventHelper.m in Sources */,
 				9C379A0D18183A6B00488101 /* AnalyticsKitUnitTestProvider.m in Sources */,
 				9C3799BA181838FD00488101 /* main.m in Sources */,
 				9C379A0B18183A6B00488101 /* AnalyticsKitDebugProvider.m in Sources */,
