@@ -1,0 +1,16 @@
+platform :ios, '6.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+workspace 'AnalyticsKit'
+xcodeproj 'AnalyticsKit'
+
+pod 'Adjust', '~> 3.3.5'
+pod 'CrashlyticsFramework'
+pod 'FlurrySDK';
+pod 'GoogleAnalytics-iOS-SDK'
+pod 'Localytics-AMP'
+pod 'Mixpanel'
+pod 'NewRelicAgent'
+pod 'Parse'
+

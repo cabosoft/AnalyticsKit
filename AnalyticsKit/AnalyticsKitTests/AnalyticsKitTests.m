@@ -19,7 +19,6 @@
 #import "AnalyticsKitMixpanelProvider.h"
 #import "AnalyticsKitNewRelicProvider.h"
 #import "AnalyticsKitParseProvider.h"
-#import "AnalyticsKitTestFlightProvider.h"
 #import "AnalyticsKitUnitTestProvider.h"
 
 @interface AnalyticsKitTests : XCTestCase
@@ -41,7 +40,6 @@
                            [[AnalyticsKitMixpanelProvider alloc] initWithAPIKey:nil],
                            [[AnalyticsKitNewRelicProvider alloc] initWithAPIKey:nil],
                            [[AnalyticsKitParseProvider alloc] initWithApplicationId:@"x" clientKey:@"y"],
-                           [[AnalyticsKitTestFlightProvider alloc] initWithAPIKey:nil],
                            [AnalyticsKitUnitTestProvider new]
                            ];
     [AnalyticsKit initializeLoggers:providers];

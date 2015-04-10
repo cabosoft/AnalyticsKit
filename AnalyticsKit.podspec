@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'GoogleAnalytics' do |ga|
     ga.source_files = 'Providers/Google Analytics/AnalyticsKitGoogleAnalyticsProvider.{h,m}'
-    ga.dependency 'GoogleAnalytics-iOS-SDK', '~> 3.0'
+    ga.dependency 'GoogleAnalytics-iOS-SDK'
     ga.dependency 'AnalyticsKit/Core'
   end
 
@@ -65,14 +65,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'NewRelic' do |nr|
     nr.source_files = 'Providers/New Relic/AnalyticsKitNewRelicProvider.{h,m}'
-    nr.dependency 'NewRelicAgent', '~>3.289'
+    nr.dependency 'NewRelicAgent'
     nr.dependency 'AnalyticsKit/Core'
-    nr.platform     = :ios, '5.0'
   end
 
-  # s.subspec 'Parse' do |p|
-  #   p.source_files = 'Providers/Parse/AnalyticsKitParseProvider.{h,m}'
-  #   p.dependency 'Parse-iOS-SDK'
-  #   p.dependency 'AnalyticsKit/Core'
-  # end
+  s.subspec 'Parse' do |p|
+    p.source_files = 'Providers/Parse/AnalyticsKitParseProvider.{h,m}'
+    p.dependency 'Parse-iOS-SDK'
+    p.dependency 'AnalyticsKit/Core'
+  end
 end
