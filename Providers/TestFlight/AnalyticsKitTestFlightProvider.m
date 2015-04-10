@@ -15,16 +15,7 @@
 -(id<AnalyticsKitProvider>)initWithAPIKey:(NSString *)testFlightKey {
     self = [super init];
     if (self) {
-//        #ifdef DEBUG
-//            #if (!TARGET_IPHONE_SIMULATOR)
-//                // Since Apple no longer allows UDID, TestFlight recommends sending it only in DEBUG builds
-//                #pragma clang diagnostic push
-//                #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-//                NSString *deviceId = [[UIDevice currentDevice] uniqueIdentifier];
-//                #pragma clang diagnostic pop
-//                [TestFlight setDeviceIdentifier:deviceId];
-//            #endif
-//        #endif
+        // Removed setDeviceIdentifier:
         [TestFlight takeOff:testFlightKey];
     }
     return self;
@@ -43,15 +34,12 @@
     [TestFlight passCheckpoint:[@"Screen - " stringByAppendingString:screenName]];
 }
 
--(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict
-{
-}
+-(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict {}
 
 -(void)logEvent:(NSString *)event withProperty:(NSString *)key andValue:(NSString *)value {
 	NSString * checkpoint = [NSString stringWithFormat:@"%@ - %@", key, event];
 	
-	if (value.length > 0)
-	{
+	if (value.length > 0) {
 		checkpoint = [NSString stringWithFormat:@"%@ (%@)", checkpoint, value];
 	}
 	
@@ -62,7 +50,6 @@
 -(void)logEvent:(NSString *)eventName timed:(BOOL)timed{}
 
 -(void)logEvent:(NSString *)eventName withProperties:(NSDictionary *)dict timed:(BOOL)timed{}
-
 -(void)endTimedEvent:(NSString *)eventName withProperties:(NSDictionary *)dict{}
 -(void)logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception {}
 -(void)logError:(NSString *)name message:(NSString *)message error:(NSError *)error {}

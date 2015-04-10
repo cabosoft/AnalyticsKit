@@ -6,9 +6,8 @@
 //
 
 #import "GAI.h"
-#import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
-
+#import "GAIFields.h"
 #import "AnalyticsKitGoogleAnalyticsProvider.h"
 
 static NSMutableDictionary *timedEvents;
@@ -65,52 +64,39 @@ static NSString* const kProperties = @"properties";
 
 -(void)uncaughtException:(NSException *)exception
 {
-	id tracker = [[GAI sharedInstance] defaultTracker];
-	
-	NSString * model = [[UIDevice currentDevice] model];
-	NSString * version = [[UIDevice currentDevice] systemVersion];
-	NSArray * backtrace = [exception callStackSymbols];
-	NSString * description = [NSString stringWithFormat:@"%@.%@.%@.Backtrace:%@",
-							  model,
-							  version,
-							  exception.description,
-							  backtrace];
-	
-	[tracker send:[[GAIDictionaryBuilder
-					createExceptionWithDescription:description  // Exception description. May be truncated to 100 chars.
-					withFatal:NO] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder
+                    createExceptionWithDescription:[[exception userInfo] description]
+                    withFatal:@(YES)] build]];
 }
 
 
 //Logging events
 -(void)logScreen:(NSString *)screenName
 {
-//    id tracker = [[GAI sharedInstance] defaultTracker];
-//    [tracker sendView:screenName];
-
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Set the screen name on the tracker so that it is used in all hits sent from this screen.
-	[tracker set:kGAIScreenName value:screenName];
-	
-	// Send a screenview.
-	[tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName
+           value:screenName];
+    
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 -(void)logEvent:(NSString *)event
 {
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create a dictionary using the builder to describe the custom event
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:nil action:event label:nil value:nil] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:nil
+                                                          action:event
+                                                           label:nil
+                                                           value:nil] build]];
 }
 
 -(void)logEvent:(NSString *)event withProperty:(NSString *)key andValue:(NSString *)value
 {
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create a dictionary using the builder to describe the custom event
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:key action:event label:value value:nil] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:key
+                                                      action:event
+                                                       label:value
+                                                       value:nil] build]];
 }
 
 -(void)logEvent:(NSString *)event withProperties:(NSDictionary *)dict
@@ -119,17 +105,18 @@ static NSString* const kProperties = @"properties";
     NSString* label = [self valueFromDictionnary:dict forKey:kLabel];
     NSNumber* value = [self valueFromDictionnary:dict forKey:kValue];
     
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create a dictionary using the builder to describe the custom event
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:category action:event label:label value:value] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
+                                                          action:event
+                                                           label:label
+                                                           value:value] build]];
 }
 
 -(void)logEvent:(NSString *)event timed:(BOOL)timed
 {
     if (!timed) {
         [self logEvent:event];
-    }else{
+    } else {
         dispatch_sync(timingQueue, ^{
                           timedEvents[event] = [NSDate date];
                       });
@@ -140,7 +127,7 @@ static NSString* const kProperties = @"properties";
 {
     if (!timed) {
         [self logEvent:event withProperties:dict];
-    }else{
+    } else {
         __block NSDictionary* properties = dict;
         dispatch_sync(timingQueue, ^{
             if (properties == nil) {
@@ -180,12 +167,10 @@ static NSString* const kProperties = @"properties";
     });
 
     id tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category   // Timing category (required)
-														interval:@(time)        // Timing interval (required)
-															name:event  // Timing name
-														   label:label] build]];    // Timing label
-
-	
+    [tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
+                                                         interval:@(time)
+                                                             name:event
+                                                            label:label] build]];
 #if !__has_feature(objc_arc)
     [properties release];
 #endif
@@ -194,45 +179,28 @@ static NSString* const kProperties = @"properties";
 
 -(void)logError:(NSString *)name message:(NSString *)message exception:(NSException *)exception
 {
-	id tracker = [[GAI sharedInstance] defaultTracker];
-	
-	NSString * model = [[UIDevice currentDevice] model];
-	NSString * version = [[UIDevice currentDevice] systemVersion];
-	NSArray * backtrace = [exception callStackSymbols];
-	NSString * description = [NSString stringWithFormat:@"%@.%@.%@.Backtrace:%@",
-							  model,
-							  version,
-							  exception.description,
-							  backtrace];
-	
-	[tracker send:[[GAIDictionaryBuilder
-					createExceptionWithDescription:description  // Exception description. May be truncated to 100 chars.
-					withFatal:NO] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    // isFatal = NO, presume here, Exeption is not fatal.
+    [tracker send:[[GAIDictionaryBuilder
+                    createExceptionWithDescription:message
+                    withFatal:@(NO)] build]];
+
 }
 
 -(void)logError:(NSString *)name message:(NSString *)message error:(NSError *)error
 {
-	id tracker = [[GAI sharedInstance] defaultTracker];
-	
-	NSString * model = [[UIDevice currentDevice] model];
-	NSString * version = [[UIDevice currentDevice] systemVersion];
-	NSString * description = [NSString stringWithFormat:@"%@.%@:%@:%@:%@",
-							  model,
-							  version,
-							  name,
-							  message,
-							  error];
-	
-	[tracker send:[[GAIDictionaryBuilder
-					createExceptionWithDescription:description  // Exception description. May be truncated to 100 chars.
-					withFatal:NO] build]];
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    // isFatal = NO, presume here, Exeption is not fatal.
+    [tracker send:[[GAIDictionaryBuilder
+                    createExceptionWithDescription:message
+                    withFatal:@(NO)] build]];
 }
 
 #pragma mark - Extra methods
 
 -(void)enableDebug:(BOOL)enabled
 {
-	[[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    [[GAI sharedInstance] setDryRun:enabled];
 }
 
 -(void)enableHandleUncaughtExceptions:(BOOL)enabled
