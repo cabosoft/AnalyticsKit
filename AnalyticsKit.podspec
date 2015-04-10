@@ -75,11 +75,4 @@ Pod::Spec.new do |s|
   #   p.dependency 'Parse-iOS-SDK'
   #   p.dependency 'AnalyticsKit/Core'
   # end
-
-  # s.subspec 'TestFlight' do |tf|
-  #   tf.source_files = 'Providers/TestFlight/AnalyticsKitTestFlightProvider.{h,m}'
-  #   tf.dependency 'TestFlightSDK'
-  #   tf.dependency 'AnalyticsKit/Core'
-  # end
-
 end
