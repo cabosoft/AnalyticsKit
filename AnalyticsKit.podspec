@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/cabosoft/AnalyticsKit.git", :tag => s.version.to_s }
 
   s.subspec 'Core' do |core|
-    core.source_files  = 'AnalyticsKit.{h,m}', 'AnalyticsKitEvent.{h,m}', 'AnalyticsKitDebugProvider.{h,m}', 'AnalyticsKitUnitTestProvider.{h,m}', 'Categories/NSNumber+Buckets.{h,m}'
+    core.source_files  = 'AnalyticsKit.{h,m}', 'AnalyticsKitEvent.{h,m}', 'AnalyticsKitDebugProvider.{h,m}', 'AnalyticsKitUnitTestProvider.{h,m}', 'AnalyticsKitTimedEventHelper.{h,m}', 'Categories/NSNumber+Buckets.{h,m}'
   end
 
   s.subspec 'AdjustIO' do |a|
