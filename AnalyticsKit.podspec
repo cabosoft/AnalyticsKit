@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Crashlytics' do |a|
     a.source_files = 'Providers/Crashlytics/AnalyticsKitCrashlyticsProvider.{h,m}'
-    a.dependency 'Adjust', '~> 3.3.5'
+    a.dependency 'CrashlyticsFramework'
     a.dependency 'AnalyticsKit/Core'
   end
 
