@@ -6,7 +6,8 @@ workspace 'AnalyticsKit'
 xcodeproj 'AnalyticsKit'
 
 pod 'Adjust', '~> 3.3.5'
-pod 'CrashlyticsFramework'
+pod 'Fabric/Core'
+pod 'Fabric/Crashlytics'
 pod 'FlurrySDK';
 pod 'GoogleAnalytics-iOS-SDK'
 pod 'Localytics-AMP'

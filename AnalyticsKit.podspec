@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AnalyticsKit"
-  s.version      = "1.2.5-Cabo"
+  s.version      = "1.2.6-Cabo"
 
   s.summary      = "Analytics framework for iOS"
 
@@ -35,7 +35,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Crashlytics' do |a|
     a.source_files = 'Providers/Crashlytics/AnalyticsKitCrashlyticsProvider.{h,m}'
-    a.dependency 'CrashlyticsFramework'
+    a.dependency 'Fabric/Core'
+    a.dependency 'Fabric/Crashlytics'
     a.dependency 'AnalyticsKit/Core'
   end
 
