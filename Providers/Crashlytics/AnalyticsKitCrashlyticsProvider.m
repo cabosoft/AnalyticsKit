@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Two Bit Labs. All rights reserved.
 //
 
-#import <Crashlytics/Crashlytics.h>
+#import <Crashlytics.h>
 #import "AnalyticsKitCrashlyticsProvider.h"
 #import "AnalyticsKitEvent.h"
 #import "AnalyticsKitTimedEventHelper.h"
