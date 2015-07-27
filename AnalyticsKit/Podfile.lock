@@ -1,8 +1,10 @@
 PODS:
   - Adjust (3.3.5)
   - Bolts (1.1.4)
-  - Fabric/Core (1.2.3)
-  - Fabric/Crashlytics (1.2.3)
+  - Crashlytics (3.1.0)
+  - Fabric (1.2.8):
+    - Fabric/Base (= 1.2.8)
+  - Fabric/Base (1.2.8)
   - FlurrySDK (6.2.0):
     - FlurrySDK/FlurrySDK (= 6.2.0)
   - FlurrySDK/FlurrySDK (6.2.0)
@@ -19,8 +21,8 @@ PODS:
 
 DEPENDENCIES:
   - Adjust (~> 3.3.5)
-  - Fabric/Core
-  - Fabric/Crashlytics
+  - Crashlytics
+  - Fabric
   - FlurrySDK
   - GoogleAnalytics-iOS-SDK
   - Localytics-AMP
@@ -31,7 +33,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Adjust: a2c00041907f388e6ed0b5c6cd22d5c6ee4f6810
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
-  Fabric: 8a5b89c2131962830d92bbc88d482e80665846b2
+  Crashlytics: ef9a58a4e806b316a1748c06432f6f847ba09ac6
+  Fabric: a9eabe53915e9f1db55a84dd2838737928675878
   FlurrySDK: 6d8cc2f898589214ed72e481cf59cffa55b88fe0
   GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
   Localytics-AMP: 8cc9eba1d63fa50c5ec780451dfe00b4fbad4fb9
@@ -39,4 +42,4 @@ SPEC CHECKSUMS:
   NewRelicAgent: c9efe4386f703c97741fbb1f65e80d5513a04866
   Parse: fa8ec29de6d82035635986c11946299fb1b38316
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.38.0
