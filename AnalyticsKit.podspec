@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AnalyticsKit"
-  s.version      = "1.2.7-Cabo"
+  s.version      = "1.2.8-Cabo"
 
   s.summary      = "Analytics framework for iOS"
 
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'AdjustIO' do |a|
     a.source_files = 'Providers/AdjustIO/AnalyticsKitAdjustIOProvider.{h,m}'
-    a.dependency 'Adjust', '~> 3.3.5'
+    a.dependency 'Adjust'
     a.dependency 'AnalyticsKit/Core'
   end
 
@@ -42,19 +42,19 @@ Pod::Spec.new do |s|
 
   s.subspec 'Flurry' do |f|
     f.source_files = 'Providers/Flurry/AnalyticsKitFlurryProvider.{h,m}'
-    f.dependency 'FlurrySDK'
+    f.dependency 'Flurry-iOS-SDK'
     f.dependency 'AnalyticsKit/Core'
   end
 
   s.subspec 'GoogleAnalytics' do |ga|
     ga.source_files = 'Providers/Google Analytics/AnalyticsKitGoogleAnalyticsProvider.{h,m}'
-    ga.dependency 'GoogleAnalytics-iOS-SDK'
+    ga.dependency 'GoogleAnalytics'
     ga.dependency 'AnalyticsKit/Core'
   end
 
   s.subspec 'Localytics' do |l|
     l.source_files = 'Providers/Localytics/AnalyticsKitLocalyticsProvider.{h,m}'
-    l.dependency 'Localytics-AMP'
+    l.dependency 'Localytics'
     l.dependency 'AnalyticsKit/Core'
   end
 

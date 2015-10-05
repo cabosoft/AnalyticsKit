@@ -127,6 +127,7 @@
 		9C379A191818507A00488101 /* AnalyticsKitCrashlyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnalyticsKitCrashlyticsProvider.h; path = Crashlytics/AnalyticsKitCrashlyticsProvider.h; sourceTree = "<group>"; };
 		9C379A1A1818507A00488101 /* AnalyticsKitCrashlyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticsKitCrashlyticsProvider.m; path = Crashlytics/AnalyticsKitCrashlyticsProvider.m; sourceTree = "<group>"; };
 		B83449231AD8800000F3777F /* AnalyticsKitTimedEventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnalyticsKitTimedEventHelper.m; path = ../../AnalyticsKitTimedEventHelper.m; sourceTree = "<group>"; };
+		B8AF471F1BC211F100203699 /* AnalyticsKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AnalyticsKit.podspec; path = ../../AnalyticsKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +283,7 @@
 		9C3799B4181838FD00488101 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8AF471F1BC211F100203699 /* AnalyticsKit.podspec */,
 				9C0EF30E18E0D0F300D19A2C /* ProviderLibraries */,
 				9C3799B5181838FD00488101 /* AnalyticsKit-Info.plist */,
 				9C3799B6181838FD00488101 /* InfoPlist.strings */,
@@ -733,8 +735,6 @@
 					"-framework",
 					"\"NewRelicAgent\"",
 					"-framework",
-					"\"Parse\"",
-					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
 					"\"Security\"",
@@ -810,8 +810,6 @@
 					"\"MobileCoreServices\"",
 					"-framework",
 					"\"NewRelicAgent\"",
-					"-framework",
-					"\"Parse\"",
 					"-framework",
 					"\"QuartzCore\"",
 					"-framework",
