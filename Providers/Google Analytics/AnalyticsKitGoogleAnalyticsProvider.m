@@ -77,7 +77,7 @@ static NSString* const kProperties = @"properties";
     [_tracker set:kGAIScreenName
            value:screenName];
     
-    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    [_tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void)logEvent:(NSString *)event
