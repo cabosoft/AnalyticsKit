@@ -21,6 +21,7 @@
 
 #define AKERROR(fmt, ...) AKLOG(fmt, ## __VA_ARGS__)
 
+
 @protocol AnalyticsKitProvider <NSObject>
 
 // Lifecycle
@@ -51,6 +52,7 @@
 -(void)logError:(NSString *)name message:(NSString *)message error:(NSError *)error;
 
 @optional
+-(void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 -(void) applicationDidBecomeActive:(UIApplication *) application;
 
 // Pre iOS 4.2 application URL support
@@ -68,8 +70,10 @@ OBJC_EXPORT NSString* const AnalyticsKitEventTimeSeconds;
 +(void)initialize;
 +(void)initializeLoggers:(NSArray *)loggers;
 +(NSArray *)loggers;
+
++(void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 +(void)applicationWillEnterForeground;
-+(void) applicationDidBecomeActive:(UIApplication *) application;
++(void)applicationDidBecomeActive:(UIApplication *) application;
 +(void)applicationDidEnterBackground;
 +(void)applicationWillTerminate;
 +(void)uncaughtException:(NSException *)exception;

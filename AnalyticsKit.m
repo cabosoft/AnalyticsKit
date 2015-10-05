@@ -30,6 +30,16 @@ static NSArray *_loggers = nil;
     return _loggers;
 }
 
++(void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+{
+	AKINFO(@"");
+	for (id<AnalyticsKitProvider> logger in _loggers) {
+		if ([logger respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)])	{
+			[logger application:application didFinishLaunchingWithOptions:launchOptions];
+		}
+	}
+}
+
 +(void)applicationWillEnterForeground {
     AKINFO(@"");
     for (id<AnalyticsKitProvider> logger in _loggers) {
