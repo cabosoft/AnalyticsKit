@@ -8,8 +8,8 @@ xcodeproj 'AnalyticsKit'
 pod 'Adjust', '~> 3.3.5'
 pod 'Fabric'
 pod 'Crashlytics'
-pod 'FlurrySDK';
-pod 'GoogleAnalytics-iOS-SDK'
+pod 'Flurry-iOS-SDK';
+pod 'GoogleAnalytics'
 pod 'Localytics-AMP'
 pod 'Mixpanel'
 pod 'NewRelicAgent'

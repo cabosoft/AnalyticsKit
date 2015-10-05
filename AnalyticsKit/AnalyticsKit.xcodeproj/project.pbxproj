@@ -465,7 +465,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AnalyticsKit;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Two Bit Labs";
 				TargetAttributes = {
 					9C3799CA181838FD00488101 = {
@@ -627,6 +627,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -752,6 +753,7 @@
 					"-weak_framework",
 					"\"iAd\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -829,6 +831,7 @@
 					"-weak_framework",
 					"\"iAd\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -880,6 +883,7 @@
 					"\"$(SRCROOT)/AnalyticsKitTests/OCMock/libOCMock.a\"",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -928,6 +932,7 @@
 					"\"$(SRCROOT)/AnalyticsKitTests/OCMock/libOCMock.a\"",
 				);
 				PODS_ROOT = "${SRCROOT}/Pods";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twobitlabs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
