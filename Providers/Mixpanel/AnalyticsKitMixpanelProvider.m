@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Collusion. All rights reserved.
 //
 
-#import "Mixpanel.h"
+
 #import "AnalyticsKitMixpanelProvider.h"
+@import Mixpanel;
 
 @implementation AnalyticsKitMixpanelProvider
 

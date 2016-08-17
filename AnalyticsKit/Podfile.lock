@@ -1,23 +1,22 @@
 PODS:
-  - Adjust (4.4.1):
-    - Adjust/Core (= 4.4.1)
-  - Adjust/Core (4.4.1)
-  - Bolts/Tasks (1.4.0)
-  - Crashlytics (3.3.4)
-  - Fabric (1.5.5):
-    - Fabric/Base (= 1.5.5)
-  - Fabric/Base (1.5.5)
-  - Flurry-iOS-SDK (7.3.0):
-    - Flurry-iOS-SDK/FlurrySDK (= 7.3.0)
-  - Flurry-iOS-SDK/FlurrySDK (7.3.0)
-  - GoogleAnalytics (3.13.0)
-  - Localytics (3.5.1)
-  - Mixpanel (2.9.0):
-    - Mixpanel/Mixpanel (= 2.9.0)
-  - Mixpanel/Mixpanel (2.9.0)
-  - NewRelicAgent (5.3.2)
-  - Parse (1.7.5.3):
-    - Bolts/Tasks (>= 1.2.0)
+  - Adjust (4.8.3):
+    - Adjust/Core (= 4.8.3)
+  - Adjust/Core (4.8.3)
+  - Bolts/Tasks (1.8.4)
+  - Crashlytics (3.7.3):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
+  - Flurry-iOS-SDK (7.6.6):
+    - Flurry-iOS-SDK/FlurrySDK (= 7.6.6)
+  - Flurry-iOS-SDK/FlurrySDK (7.6.6)
+  - GoogleAnalytics (3.16.0)
+  - Localytics (4.0.1)
+  - Mixpanel (3.0.2):
+    - Mixpanel/Mixpanel (= 3.0.2)
+  - Mixpanel/Mixpanel (3.0.2)
+  - NewRelicAgent (5.7.1)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
   - Adjust
@@ -31,15 +30,17 @@ DEPENDENCIES:
   - Parse
 
 SPEC CHECKSUMS:
-  Adjust: e81e2cbe1df388fb181adfc27d6a1f4ddf71b339
-  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
-  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
-  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
-  Flurry-iOS-SDK: 054befae0fa0244fb000985bfe757d70f87a9f60
-  GoogleAnalytics: fcf1f1cad57ae1a9a53520018f0f680ceeeb8b49
-  Localytics: da06c00606839b53978ca093adbca1d8afdeeb3e
-  Mixpanel: 42ae6168effc48481d957f7883dd8514a398738d
-  NewRelicAgent: aebd84eb0c99b5e4ee7a8629eddd4eb3c273a109
-  Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
+  Adjust: 18316e64025f7f71530938a90571e5e188f346c5
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Crashlytics: 76f6beaff70acf226139582c09c78461597c2b98
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  Flurry-iOS-SDK: 97bbeec09cca666c2f1772f6e161c4f8ccff611e
+  GoogleAnalytics: 3de986b2fa29012c69fa415566006a9c9cf25320
+  Localytics: b83296ce3674965cb122e1e05d427b2f622f62f6
+  Mixpanel: 0e4f1f9a2ac612b589b2894830038418c2587428
+  NewRelicAgent: 26501e37b2c417b644abe99e8acb6684193e4acf
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: a4a1cb7a5cfc8704b59ace90ed2c50cc6bdad947
+
+COCOAPODS: 1.0.1
