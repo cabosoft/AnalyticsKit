@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AnalyticsKit"
-  s.version      = "1.2.10-Cabo"
+  s.version      = "1.3.0"
 
   s.summary      = "Analytics framework for iOS"
 
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
 
   
-  s.platform     = :ios, "6.0"
+  s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/cabosoft/AnalyticsKit.git", :tag => s.version.to_s }
 
   s.subspec 'Core' do |core|
