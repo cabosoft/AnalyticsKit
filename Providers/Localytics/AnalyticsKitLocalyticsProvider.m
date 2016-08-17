@@ -7,7 +7,7 @@
 //
 
 #import "AnalyticsKitLocalyticsProvider.h"
-@import Localytics;
+#import <Localytics/Localytics.h>
 
 @implementation AnalyticsKitLocalyticsProvider
 
