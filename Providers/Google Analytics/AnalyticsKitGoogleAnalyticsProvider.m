@@ -25,7 +25,7 @@ static NSString* const kProperties = @"properties";
 
 
 @interface AnalyticsKitGoogleAnalyticsProvider () {
-    id _tracker;
+    id<GAITracker> _tracker;
 }
 
 -(id)valueFromDictionnary:(NSDictionary*)dictionnary forKey:(NSString*)key;
@@ -59,9 +59,7 @@ static NSString* const kProperties = @"properties";
 
 -(void)applicationDidEnterBackground{}
 
--(void)applicationWillTerminate{
-    [_tracker close];
-}
+-(void)applicationWillTerminate{}
 
 -(void)uncaughtException:(NSException *)exception
 {
